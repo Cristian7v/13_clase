@@ -46,6 +46,8 @@ const contenedorCartas = document.querySelector(".listadoCartas")
 
 
 /* Función que recorre el listado de las cartas */
+function recorrerListado(){
+    contenedorCartas.innerHTML = ""
 listadoCartas.forEach(
     (carta) => contenedorCartas.innerHTML += `
     <article class="card">
@@ -55,6 +57,20 @@ listadoCartas.forEach(
       <p>${carta.descripcion}</p>
     </div>
 </article>`
-)
+)}
+recorrerListado()
+function crearCarta(){
+    const nombre= prompt("¿Que deporte te gusta?")
+    const imagen= prompt("imagen del desarrollador")
+    const descripcion= prompt("Identificate con 3 palabras")
 
+//creamos un  objeto con los del usuario
+    const carta = {nombre,imagen,descripcion}
+
+    //añadir la carta al listado de cartas
+    listadoCartas.push(carta)
+
+    //llamado a la funcion recorrer cartas
+    recorrerListado()
+}
 
